@@ -7,11 +7,17 @@
   </div>
 <%end%>
 
-<h1 class="ml-3">Minhas tarefas</h1>
+
+<div class="w-100 d-flex my-2" id="header">
+  <h2 class="ml-3 d-inline text-white">Minhas tarefas</h2>
+  <%= link_to 'Nova tarefa', "#", id: "new_task_bt", class: "btn btn-primary ml-auto mr-2" %>
+  <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-danger ml-1 mr-2" %>
+</div>
+
 <div class="fluid-container mt-5 px-3">
   <div class="row mt-3">
     <div class="col-12 col-md-6">
-      <h3 class="ml-1">A fazer</h3>
+      <h4 class="ml-1 text-white">A fazer</h3>
 
       <% @tasks[:to_do].each do |task| %>
 
@@ -21,7 +27,7 @@
           <%= task.title %>
           
           <%= link_to task_path(task.id), method: :delete, class: "close", data: {confirm: 'Você tem certeza que deseja excluir essa tarefa?'} do %>
-            &times;
+            <i class="fas fa-trash"></i>
           <% end %>
           </h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= task.deadline.strftime("%d/%m/%Y") %></h6>
@@ -38,7 +44,7 @@
 
     </div>
     <div class="col-12 col-md-6">
-      <h3 class="ml-1">Feitas</h3>
+      <h4 class="ml-1 text-white">Feitas</h3>
       <% @tasks[:done].each do |task| %>
 
       <div class="card task-card">
@@ -47,7 +53,7 @@
             <%= task.title %>
 
             <%= link_to task_path(task.id), method: :delete, class: "close", data: {confirm: 'Você tem certeza que deseja excluir essa tarefa?'} do %>
-              &times;
+              <i class="fas fa-trash-alt"></i>
             <% end %>
            
           </h5>
@@ -68,8 +74,7 @@
   <div class="row mt-3">
     <div class="col-12">
       
-      <%= link_to 'Nova tarefa', "#", id: "new_task_bt", class: "btn btn-primary ml-1" %><br/>
-      <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-danger mt-2 ml-1" %>
+      
       
     </div>
   </div>
