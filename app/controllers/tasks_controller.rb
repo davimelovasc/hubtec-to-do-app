@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_tasks, only: [:index]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.by_status(current_user.id)
     @new_task = Task.new
   end
 
@@ -20,11 +20,14 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user.id
-    
+
     if @task.save
       redirect_to tasks_path, notice: 'Tarefa criada com sucesso!'
     else
-      render :new
+      flash.now[:notice] = @task.errors.full_messages.to_sentence
+      set_user_tasks
+      @new_task = @task
+      render :index
     end
 
   end
@@ -37,6 +40,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path, notice: 'Tarefa atualizada com sucesso!'
       #tasks_path, notice: 'Tarefa atualizada com sucesso.'
     else
+      flash.now[:notice] = @task.errors.full_messages
       render :edit
     end
 
@@ -63,5 +67,9 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:title, :description, :deadline, :status)
+    end
+
+    def set_user_tasks
+      @tasks = Task.by_status(current_user.id)
     end
 end
