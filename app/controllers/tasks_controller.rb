@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.by_status(current_user.id)
+    @new_task = Task.new
   end
 
   # GET /tasks/1
@@ -26,30 +27,26 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+    @task.user_id = current_user.id
+    
+    if @task.save
+      redirect_to tasks_path, notice: 'Tarefa criada com sucesso!'
+    else
+      render :new
     end
+
   end
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+
+    if @task.update(task_params)
+      redirect_to tasks_path, notice: 'Tarefa atualizada com sucesso.'
+    else
+      render :edit
     end
+
   end
 
   # DELETE /tasks/1
@@ -70,6 +67,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :deadline)
+      params.require(:task).permit(:title, :description, :deadline, :status)
     end
 end

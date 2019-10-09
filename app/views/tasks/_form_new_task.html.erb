@@ -1,1 +1,32 @@
-<h1>Teste</h1>
+<%= form_for (@new_task), html: { class: "taskForm"} do |f| %>
+<div class="container">
+  <div class="row">
+
+    <div class="col-12">
+      <div class="field">
+        <%= f.label :title, "Título: " %><br />
+        <%= f.text_field :title %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="field">
+        <%= f.label :description, "Descrição: " %><br />
+        <%= f.text_area :description %>
+      </div>
+    </div>
+
+    <div class="col-6">
+        <div class="field">
+            <%= f.label :deadline, "Prazo: " %><br />
+            <%= f.date_field :deadline %>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal-footer mt-3">
+    <input type="submit" value="Salvar" class="btn btn-primary">
+</div>
+<% end %>

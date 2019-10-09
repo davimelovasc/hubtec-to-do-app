@@ -17,31 +17,37 @@
 @import "bootstrap";
 
 .title {
-    width: fit-content;
-    margin: 20px auto;
+  width: fit-content;
+  margin: 20px auto;
 }
 
-.loginForm {
+.loginForm,
+.taskForm {
+  width: 100%;
+
+  .field input,
+  .field textarea {
     width: 100%;
+  }
 
-    .field input {
-        width: 100%;
-    }
-
-    .actions input {
-        margin-top: 16px;
-        padding: 6px 30px;
-    }
+  .actions input {
+    margin-top: 16px;
+    padding: 6px 30px;
+  }
 }
 
 .field {
-    margin-top: 6px;
+  margin-top: 6px;
 }
 
 .task-card {
-    width: 18rem;
-    display: inline-block;
-    margin: 5px;
+  width: 18rem;
+  display: inline-block;
+  margin: 5px;
+}
+
+.underline {
+  text-decoration: underline;
 }
 /*
 .loginForm {
