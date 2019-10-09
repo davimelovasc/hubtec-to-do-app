@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.text :description
       t.date :deadline
       t.integer :status, default: 0
-      t.date :deleted_at
+      t.datetime :deleted_at
       t.references :user, foreign_key: true
 
       t.timestamps

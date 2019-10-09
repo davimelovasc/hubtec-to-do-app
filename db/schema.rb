@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_171104) do
     t.text "description"
     t.date "deadline"
     t.integer "status", default: 0
-    t.date "deleted_at"
+    t.datetime "deleted_at"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
