@@ -9,18 +9,10 @@ class TasksController < ApplicationController
     @new_task = Task.new
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
-  def show
-  end
-
-  # GET /tasks/new
-  def new
-    @task = Task.new
-  end
-
-  # GET /tasks/1/edit
   def edit
+    respond_to do |format|
+      format.js { render 'edit.js.erb' }
+    end
   end
 
   # POST /tasks
@@ -42,7 +34,8 @@ class TasksController < ApplicationController
   def update
 
     if @task.update(task_params)
-      redirect_to tasks_path, notice: 'Tarefa atualizada com sucesso.'
+      redirect_to tasks_path, notice: 'Tarefa atualizada com sucesso!'
+      #tasks_path, notice: 'Tarefa atualizada com sucesso.'
     else
       render :edit
     end

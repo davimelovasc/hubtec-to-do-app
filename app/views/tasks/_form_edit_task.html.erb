@@ -1,11 +1,11 @@
-<%= form_for (@new_task), html: { class: "taskForm"} do |f| %>
+<%= form_for (@task), html: { class: "taskForm"} do |f| %>
 <div class="container">
   <div class="row">
 
     <div class="col-12">
       <div class="field">
         <%= f.label :title, "Título: " %><br />
-        <%= f.text_field :title, required: "true"  %>
+        <%= f.text_field :title %>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
     <div class="col-6">
         <div class="field">
             <%= f.label :deadline, "Prazo: " %><br />
-            <%= f.date_field :deadline, required: "true"  %>
+            <%= f.date_field :deadline %>
         </div>
     </div>
 
