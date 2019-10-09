@@ -1,7 +1,9 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "Ja sou cadastrado", new_session_path(resource_name), 
+  class: "mx-auto d-flex w-fit-content" %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Cadastre-se", new_registration_path(resource_name) %><br />
+  <%= link_to "Cadastre-se", new_registration_path(resource_name),
+  class: "mx-auto d-flex w-fit-content" %><br />
 <% end %>

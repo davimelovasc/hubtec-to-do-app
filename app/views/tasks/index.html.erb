@@ -55,7 +55,9 @@
   <div class="row mt-3">
     <div class="col-12">
       
-      <%= link_to 'Nova tarefa', "#", id: "new_task_bt", class: "btn btn-primary ml-1" %>
+      <%= link_to 'Nova tarefa', "#", id: "new_task_bt", class: "btn btn-primary ml-1" %><br/>
+      <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-danger mt-2" %>
+      
     </div>
   </div>
 </div>

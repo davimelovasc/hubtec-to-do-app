@@ -5,7 +5,7 @@
     <div class="col-12">
       <div class="field">
         <%= f.label :title, "Título: " %><br />
-        <%= f.text_field :title %>
+        <%= f.text_field :title, required: "true"  %>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
     <div class="col-6">
         <div class="field">
             <%= f.label :deadline, "Prazo: " %><br />
-            <%= f.date_field :deadline %>
+            <%= f.date_field :deadline, required: "true"  %>
         </div>
     </div>
 
