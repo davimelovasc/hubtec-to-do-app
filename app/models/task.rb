@@ -1,7 +1,8 @@
 class Task < ApplicationRecord
     belongs_to :user
 
-    validate :valid_date
+    validates :title, :deadline, presence: true
+    before_validation :valid_date, on: :create
 
     enum status: [ :to_do, :done ]
 
@@ -14,7 +15,8 @@ class Task < ApplicationRecord
 
     def valid_date
         if self.deadline < Date.today
-            errors.add(:data_inválida, ", o prazo não pode estar no passado")
+            self.errors.add(:base, "O prazo não pode estar no passado")
+            false
         end
     end
 

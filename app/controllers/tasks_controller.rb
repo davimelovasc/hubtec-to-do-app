@@ -40,8 +40,8 @@ class TasksController < ApplicationController
       redirect_to tasks_path, notice: 'Tarefa atualizada com sucesso!'
       #tasks_path, notice: 'Tarefa atualizada com sucesso.'
     else
-      flash.now[:notice] = @task.errors.full_messages
-      render :edit
+      flash.now[:notice] = @task.errors.full_messages.to_sentence
+      render :index
     end
 
   end

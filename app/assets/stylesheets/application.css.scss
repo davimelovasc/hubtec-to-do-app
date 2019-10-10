@@ -66,6 +66,17 @@ body {
     width: fit-content;
   }
 }
+
+a.close-icon {
+  font-size: 1.14rem;
+  color: #d11919;
+  opacity: 1;
+}
+
+a.close-icon:hover {
+  color: #cc0000;
+  opacity: 1 !important;
+}
 /*
 .loginForm {
     width: 300px;
