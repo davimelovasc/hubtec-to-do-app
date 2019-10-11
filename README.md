@@ -4,14 +4,15 @@
 Esse sistema, fruto de um desafio proposto pela empresa Hubtec Fortaleza, 
 tem como principal objetivo auxiliar os usuários no gerenciamento de suas tarefas diárias.
 <br/>
+<br/>
 <a href="https://stormy-crag-32938.herokuapp.com/">Clique aqui para ver o sistema rodando no Heroku.</a>
 
 <hr/>
 <h5>Linguagens, Frameworks e Tecnologias utilizados</h5>
- - Ruby on Rails 5.2.3
- - Jquery
- - Bootstrap 4.3
- - Font awesome
+ - Ruby on Rails 5.2.3<br/>
+ - Jquery<br/>
+ - Bootstrap 4.3<br/>
+ - Font awesome<br/>
 
 <h5>Para executar o sistema localmente</h5>
 
