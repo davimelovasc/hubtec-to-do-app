@@ -44,6 +44,11 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+
+  config.infer_spec_type_from_file_location!
+
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

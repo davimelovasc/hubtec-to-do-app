@@ -1,24 +1,40 @@
-# README
+<h3> Gerenciamento de Tarefas - Hubtec Teste</h3>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h5>Descrição</h5>
+Esse sistema, fruto de um desafio proposto pela empresa Hubtec Fortaleza, 
+tem como principal objetivo auxiliar os usuários no gerenciamento de suas tarefas diárias.
+<br/>
+<a href="https://stormy-crag-32938.herokuapp.com/">Clique aqui para ver o sistema rodando no Heroku.</a>
 
-Things you may want to cover:
+<hr/>
+<h5>Linguagens, Frameworks e Tecnologias utilizados</h5>
+ - Ruby on Rails 5.2.3
+ - Jquery
+ - Bootstrap 4.3
+ - Font awesome
 
-* Ruby version
+<h5>Para executar o sistema localmente</h5>
 
-* System dependencies
+1. Download do projeto
 
-* Configuration
+```bash
+git clone https://github.com/davimelovasc/hubtec-to-do-app
+```
 
-* Database creation
+2. Na pasta do projeto, instale as gems de dependência
 
-* Database initialization
+```bash
+bundle install
+```
 
-* How to run the test suite
+3. Crie o banco de dados e suas respectivas tabelas:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bundle exec rake db:create db:migrate
+```
 
-* Deployment instructions
+4. Inicie o servidor localmente:
 
-* ...
+```bash
+rails s
+```
