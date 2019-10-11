@@ -52,8 +52,8 @@
           <h5 class="card-title">
             <%= task.title %>
 
-            <%= link_to task_path(task.id), method: :delete, class: "close", data: {confirm: 'Você tem certeza que deseja excluir essa tarefa?'} do %>
-              <i class="fas fa-trash-alt"></i>
+            <%= link_to task_path(task.id), method: :delete, class: "close close-icon", data: {confirm: 'Você tem certeza que deseja excluir essa tarefa?'} do %>
+              <i class="fas fa-trash"></i>
             <% end %>
            
           </h5>

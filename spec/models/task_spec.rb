@@ -19,7 +19,6 @@ RSpec.describe Task, type: :model do
 
         describe 'is deadline present' do
             it  "should have a deadline" do
-              puts task.deadline
               expect(task.deadline).not_to be_nil
             end
         end
@@ -52,10 +51,5 @@ RSpec.describe Task, type: :model do
           expect(task).to be_valid
         end
       end
-
-    
-
-
-    ## describe 'Self Methods'
 
 end
